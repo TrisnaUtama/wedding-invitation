@@ -15,42 +15,42 @@ export default function useAudio(src) {
 
     audioRef.current = audio;
 
-    const handlePlay = () => setPlaying(true);
-    const handlePause = () => setPlaying(false);
-    const handleEnded = () => setPlaying(false);
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    const onEnded = () => setPlaying(false);
 
-    audio.addEventListener("play", handlePlay);
-    audio.addEventListener("pause", handlePause);
-    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("ended", onEnded);
 
-    const stopAudio = () => {
+    const stop = () => {
       audio.pause();
       audio.currentTime = 0;
     };
 
     const handleVisibility = () => {
       if (document.hidden) {
-        stopAudio();
+        stop();
       }
     };
 
-    window.addEventListener("beforeunload", stopAudio);
-    window.addEventListener("pagehide", stopAudio);
+    window.addEventListener("beforeunload", stop);
+    window.addEventListener("pagehide", stop);
     document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
-      stopAudio();
+      stop();
 
-      audio.removeEventListener("play", handlePlay);
-      audio.removeEventListener("pause", handlePause);
-      audio.removeEventListener("ended", handleEnded);
-
-      window.removeEventListener("beforeunload", stopAudio);
-      window.removeEventListener("pagehide", stopAudio);
+      window.removeEventListener("beforeunload", stop);
+      window.removeEventListener("pagehide", stop);
       document.removeEventListener(
         "visibilitychange",
         handleVisibility
       );
+
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("ended", onEnded);
 
       audio.removeAttribute("src");
       audio.load();
@@ -66,12 +66,10 @@ export default function useAudio(src) {
   }, [volume]);
 
   const play = useCallback(async () => {
-    const audio = audioRef.current;
-
-    if (!audio) return;
+    if (!audioRef.current) return;
 
     try {
-      await audio.play();
+      await audioRef.current.play();
     } catch (err) {
       console.error(err);
     }
@@ -82,27 +80,23 @@ export default function useAudio(src) {
   }, []);
 
   const stop = useCallback(() => {
-    const audio = audioRef.current;
+    if (!audioRef.current) return;
 
-    if (!audio) return;
-
-    audio.pause();
-    audio.currentTime = 0;
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
   }, []);
 
   const toggle = useCallback(async () => {
-    const audio = audioRef.current;
+    if (!audioRef.current) return;
 
-    if (!audio) return;
-
-    if (audio.paused) {
+    if (audioRef.current.paused) {
       try {
-        await audio.play();
+        await audioRef.current.play();
       } catch (err) {
         console.error(err);
       }
     } else {
-      audio.pause();
+      audioRef.current.pause();
     }
   }, []);
 

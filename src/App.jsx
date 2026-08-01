@@ -41,30 +41,14 @@ export default function App() {
   const audio = useAudio(musicSrc);
   const { seo } = weddingData;
 
-  useEffect(() => {
-    const stopAudio = () => {
-      audio.stop?.();
-    };
-
-    window.addEventListener("beforeunload", stopAudio);
-    window.addEventListener("pagehide", stopAudio);
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        stopAudio();
-      }
-    });
-
-    return () => {
-      stopAudio();
-
-      window.removeEventListener("beforeunload", stopAudio);
-      window.removeEventListener("pagehide", stopAudio);
-    };
-  }, [audio]);
-
-  const handleOpenCover = () => {
+  const handleOpenCover = async () => {
     setCoverOpen(true);
-    audio.play();
+
+    try {
+      await audio.play();
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
