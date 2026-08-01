@@ -14,7 +14,7 @@ const weddingData = {
   // ─── Couple ───────────────────────────────────────
   groom: {
     fullName: 'Koming',
-    fullName: 'Koming',
+    shortName: 'Koming',
     nickName: 'Koming',
     parents: 'Putra dari Bapak I Ketut Sudiana & Ibu Ni Wayan Sari',
     childOrder: 'Putra Kedua',
