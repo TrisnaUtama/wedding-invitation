@@ -1,18 +1,18 @@
-import { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Calendar, MapPin } from 'lucide-react';
-import gsap from 'gsap';
-import weddingData from '../data/wedding';
-import { getTimeLeft } from '../utils/helpers';
-import { OrnamentDivider } from './Ornament';
-import PuraSilhouette from './PuraSilhouette';
+import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Calendar, MapPin } from "lucide-react";
+import gsap from "gsap";
+import weddingData from "../data/wedding";
+import { getTimeLeft } from "../utils/helpers";
+import { OrnamentDivider } from "./Ornament";
+import PuraSilhouette from "./PuraSilhouette";
 
 function CountdownUnit({ value, label }) {
   return (
     <div className="flex flex-col items-center mx-2 sm:mx-4">
       <div className="relative w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center glass-dark rounded-lg gold-border">
         <span className="font-cinzel text-2xl sm:text-4xl font-bold text-gold">
-          {String(value).padStart(2, '0')}
+          {String(value).padStart(2, "0")}
         </span>
       </div>
       <span className="font-poppins text-[10px] sm:text-xs text-cream/60 mt-2 tracking-widest uppercase">
@@ -23,11 +23,15 @@ function CountdownUnit({ value, label }) {
 }
 
 export default function HeroSection() {
-  const { groom, bride, date, displayDate, location, images, mapUrl } = weddingData;
+  const { groom, bride, date, displayDate, location, images, mapUrl } =
+    weddingData;
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(date));
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
@@ -42,10 +46,41 @@ export default function HeroSection() {
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
       {/* Parallax BG */}
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
-          style={{ backgroundImage: `url(${images.hero})` }}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ y: bgY }}
+      >
+        {/* Background blur */}
+        <img
+          src={images.hero}
+          alt=""
+          className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-cover
+      scale-125
+      blur-3xl
+      brightness-50
+    "
+        />
+
+        {/* Gradient */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Foto utama */}
+        <img
+          src={images.hero}
+          alt="Hero"
+          className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-contain
+      z-10
+    "
         />
       </motion.div>
 

@@ -1,6 +1,6 @@
-import heroImg from '../assets/images/hero.svg';
-import brideImg from '../assets/images/bride.svg';
-import groomImg from '../assets/images/groom.svg';
+import heroImg from '../assets/images/hero.jpg';
+import brideImg from '../assets/images/bride.jpg';
+import groomImg from '../assets/images/groom.jpg';
 import gallery1 from '../assets/images/gallery1.svg';
 import gallery2 from '../assets/images/gallery2.svg';
 import gallery3 from '../assets/images/gallery3.svg';
@@ -18,7 +18,7 @@ const weddingData = {
     nickName: 'Koming',
     parents: 'Putra dari Bapak I Ketut Sudiana & Ibu Ni Wayan Sari',
     childOrder: 'Putra Kedua',
-    instagram: '@made',
+    instagram: '@koming',
     photo: groomImg,
     description:
       'Seorang pria yang percaya bahwa cinta sejati datang sekali seumur hidup.',
@@ -28,16 +28,16 @@ const weddingData = {
     shortName: 'Melon',
     nickName: 'Melon',
     parents: 'Putri dari Bapak Jendra & Blekok',
-    childOrder: 'Blekok',
-    instagram: '@ayu',
+    childOrder: 'Putri Kedua',
+    instagram: '@melon',
     photo: brideImg,
     description:
       'Seorang wanita yang meyakini bahwa kebahagiaan terindah ada dalam kebersamaan.',
   },
 
   // ─── Date & Location ─────────────────────────────
-  date: '2027-08-20',
-  displayDate: '20 Agustus 2027',
+  date: '2026-08-28',
+  displayDate: '28 Agustus 2026',
   location: 'Bali, Indonesia',
   venue: 'The Royal Pita Maha Resort',
   address: 'Jl. Raya Ubud No. 100, Ubud, Gianyar, Bali 80571',
@@ -47,36 +47,36 @@ const weddingData = {
 
   // ─── Events ───────────────────────────────────────
   events: [
-    {
-      title: 'Upacara Mepamit',
-      subtitle: 'Upacara Adat Bali',
-      date: '20 Agustus 2027',
-      time: '08:00 - 10:00 WITA',
-      location: 'Pura Keluarga Dharma',
-      address: 'Jl. Raya Ubud No. 100, Ubud, Bali',
-      mapUrl: 'https://maps.google.com/?q=-8.5069,115.2625',
-      dresscode: 'Pakaian Adat Bali',
-    },
+    // {
+    //   title: 'Upacara Mepamit',
+    //   subtitle: 'Upacara Adat Bali',
+    //   date: '20 Agustus 2027',
+    //   time: '08:00 - 10:00 WITA',
+    //   location: 'Pura Keluarga Dharma',
+    //   address: 'Jl. Raya Ubud No. 100, Ubud, Bali',
+    //   mapUrl: 'https://maps.google.com/?q=-8.5069,115.2625',
+    //   dresscode: 'Pakaian Adat Bali',
+    // },
     {
       title: 'Pawiwahan',
       subtitle: 'Upacara Pernikahan',
-      date: '20 Agustus 2027',
+      date: '28 Agustus 2026',
       time: '10:00 - 12:00 WITA',
       location: 'The Royal Pita Maha Resort',
       address: 'Jl. Raya Ubud No. 100, Ubud, Bali',
       mapUrl: 'https://maps.google.com/?q=-8.5069,115.2625',
-      dresscode: 'Pakaian Adat Bali / Formal',
+      // dresscode: 'Pakaian Adat Bali / Formal',
     },
-    {
-      title: 'Resepsi',
-      subtitle: 'Pesta Pernikahan',
-      date: '20 Agustus 2027',
-      time: '18:00 - 21:00 WITA',
-      location: 'The Royal Pita Maha Resort',
-      address: 'Jl. Raya Ubud No. 100, Ubud, Bali',
-      mapUrl: 'https://maps.google.com/?q=-8.5069,115.2625',
-      dresscode: 'Formal / Semi-Formal',
-    },
+    // {
+    //   title: 'Resepsi',
+    //   subtitle: 'Pesta Pernikahan',
+    //   date: '20 Agustus 2027',
+    //   time: '18:00 - 21:00 WITA',
+    //   location: 'The Royal Pita Maha Resort',
+    //   address: 'Jl. Raya Ubud No. 100, Ubud, Bali',
+    //   mapUrl: 'https://maps.google.com/?q=-8.5069,115.2625',
+    //   dresscode: 'Formal / Semi-Formal',
+    // },
   ],
 
   // ─── Love Story ───────────────────────────────────
@@ -132,7 +132,7 @@ const weddingData = {
 
   // ─── Dresscode ────────────────────────────────────
   dresscode: {
-    colors: ['#D4AF37', '#F5F0E8', '#8B4513', '#800020', '#2C1810', '#C9B99A'],
+    // colors: ['#D4AF37', '#F5F0E8', '#8B4513', '#800020', '#2C1810', '#C9B99A'],
     dos: [
       'Pakaian Adat Bali',
       'Busana Formal Elegan',
@@ -171,14 +171,14 @@ const weddingData = {
     },
     {
       name: 'Made Agung',
-      message: 'Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah.',
+      message: 'Semoga menjadi keluarga yang bahagia.',
       date: '2027-08-16',
     },
   ],
 
   // ─── SEO ──────────────────────────────────────────
   seo: {
-    title: 'Undangan Pernikahan Dharma & Ayu — 20 Agustus 2027',
+    title: 'Undangan Pernikahan Koming & Melon — 28 Agustus 2026',
     description:
       'Dengan memohon Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa, kami mengundang Anda untuk hadir di pernikahan I Made Dharma & Ni Putu Ayu.',
     ogImage: heroImg,
