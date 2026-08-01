@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useEffect } from "react";
 import Cover from "./components/Cover";
 import HeroSection from "./components/HeroSection";
 import MusicPlayer from "./components/MusicPlayer";
