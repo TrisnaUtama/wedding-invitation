@@ -96,17 +96,17 @@ export default function App() {
           <Suspense fallback={<SectionLoader />}>
             <QuoteSection />
             <CoupleSection />
-            <LoveStory />
+            {/* <LoveStory /> */}
             <EventSection />
             <CountdownSection />
             <GallerySection />
-            <VideoSection />
-            <DressCode />
+            {/* <VideoSection /> */}
+            {/* <DressCode /> */}
             <RSVPSection />
             <WishesSection />
             {/* <GiftSection /> */}
             <MapSection />
-            <InstagramFilter />
+            {/* <InstagramFilter /> */}
             <Footer />
           </Suspense>
 

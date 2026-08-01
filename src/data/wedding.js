@@ -13,9 +13,9 @@ import bg2 from '../assets/images/bg2.svg';
 const weddingData = {
   // ─── Couple ───────────────────────────────────────
   groom: {
-    fullName: 'I Made Dharma Putra',
-    shortName: 'I Made Dharma',
-    nickName: 'Dharma',
+    fullName: 'Koming',
+    fullName: 'Koming',
+    nickName: 'Koming',
     parents: 'Putra dari Bapak I Ketut Sudiana & Ibu Ni Wayan Sari',
     childOrder: 'Putra Kedua',
     instagram: '@made',
@@ -24,11 +24,11 @@ const weddingData = {
       'Seorang pria yang percaya bahwa cinta sejati datang sekali seumur hidup.',
   },
   bride: {
-    fullName: 'Ni Putu Ayu Laksmi',
-    shortName: 'Ni Putu Ayu',
-    nickName: 'Ayu',
-    parents: 'Putri dari Bapak I Nyoman Wirawan & Ibu Ni Made Dewi',
-    childOrder: 'Putri Pertama',
+    fullName: 'Melon',
+    shortName: 'Melon',
+    nickName: 'Melon',
+    parents: 'Putri dari Bapak Jendra & Blekok',
+    childOrder: 'Blekok',
     instagram: '@ayu',
     photo: brideImg,
     description:
