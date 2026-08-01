@@ -126,7 +126,7 @@ const weddingData = {
 
   // ─── Quote ────────────────────────────────────────
   quote: {
-    text: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."',
+    text: '"Om Atma Tattwam Asi. Dua jiwa yang berbeda menyatu menjadi satu dalam ikatan suci, saling melengkapi dalam dharma, artha, kama, dan moksa."',
     source: '— QS. Ar-Rum: 21',
   },
 
