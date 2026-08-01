@@ -1,30 +1,31 @@
-import { useState, lazy, Suspense } from 'react';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
-import Cover from './components/Cover';
-import HeroSection from './components/HeroSection';
-import MusicPlayer from './components/MusicPlayer';
-import FloatingButtons from './components/FloatingButtons';
-import { FloatingFlowers } from './components/Ornament';
-import useAudio from './hooks/useAudio';
-import useDarkMode from './hooks/useDarkMode';
-import weddingData from './data/wedding';
-import musicSrc from './assets/music/wedding.mp3';
+import { useState, lazy, Suspense } from "react";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+import { useState, useEffect, lazy, Suspense } from "react";
+import Cover from "./components/Cover";
+import HeroSection from "./components/HeroSection";
+import MusicPlayer from "./components/MusicPlayer";
+import FloatingButtons from "./components/FloatingButtons";
+import { FloatingFlowers } from "./components/Ornament";
+import useAudio from "./hooks/useAudio";
+import useDarkMode from "./hooks/useDarkMode";
+import weddingData from "./data/wedding";
+import musicSrc from "./assets/music/wedding.mp3";
 
 // Lazy-loaded sections for code splitting
-const QuoteSection = lazy(() => import('./components/QuoteSection'));
-const CoupleSection = lazy(() => import('./components/CoupleSection'));
-const LoveStory = lazy(() => import('./components/LoveStory'));
-const EventSection = lazy(() => import('./components/EventSection'));
-const CountdownSection = lazy(() => import('./components/CountdownSection'));
-const GallerySection = lazy(() => import('./components/GallerySection'));
-const VideoSection = lazy(() => import('./components/VideoSection'));
-const RSVPSection = lazy(() => import('./components/RSVPSection'));
-const WishesSection = lazy(() => import('./components/WishesSection'));
-const GiftSection = lazy(() => import('./components/GiftSection'));
-const MapSection = lazy(() => import('./components/MapSection'));
-const InstagramFilter = lazy(() => import('./components/InstagramFilter'));
-const DressCode = lazy(() => import('./components/DressCode'));
-const Footer = lazy(() => import('./components/Footer'));
+const QuoteSection = lazy(() => import("./components/QuoteSection"));
+const CoupleSection = lazy(() => import("./components/CoupleSection"));
+const LoveStory = lazy(() => import("./components/LoveStory"));
+const EventSection = lazy(() => import("./components/EventSection"));
+const CountdownSection = lazy(() => import("./components/CountdownSection"));
+const GallerySection = lazy(() => import("./components/GallerySection"));
+const VideoSection = lazy(() => import("./components/VideoSection"));
+const RSVPSection = lazy(() => import("./components/RSVPSection"));
+const WishesSection = lazy(() => import("./components/WishesSection"));
+const GiftSection = lazy(() => import("./components/GiftSection"));
+const MapSection = lazy(() => import("./components/MapSection"));
+const InstagramFilter = lazy(() => import("./components/InstagramFilter"));
+const DressCode = lazy(() => import("./components/DressCode"));
+const Footer = lazy(() => import("./components/Footer"));
 
 function SectionLoader() {
   return (
@@ -39,6 +40,27 @@ export default function App() {
   const [dark, setDark] = useDarkMode();
   const audio = useAudio(musicSrc);
   const { seo } = weddingData;
+
+  useEffect(() => {
+    const stopAudio = () => {
+      audio.stop?.();
+    };
+
+    window.addEventListener("beforeunload", stopAudio);
+    window.addEventListener("pagehide", stopAudio);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAudio();
+      }
+    });
+
+    return () => {
+      stopAudio();
+
+      window.removeEventListener("beforeunload", stopAudio);
+      window.removeEventListener("pagehide", stopAudio);
+    };
+  }, [audio]);
 
   const handleOpenCover = () => {
     setCoverOpen(true);
@@ -59,13 +81,13 @@ export default function App() {
         <meta name="twitter:description" content={seo.description} />
         <script type="application/ld+json">
           {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Event',
+            "@context": "https://schema.org",
+            "@type": "Event",
             name: seo.title,
             description: seo.description,
             startDate: weddingData.date,
             location: {
-              '@type': 'Place',
+              "@type": "Place",
               name: weddingData.venue,
               address: weddingData.address,
             },
@@ -80,7 +102,7 @@ export default function App() {
       {coverOpen && (
         <main
           className={`transition-colors duration-500 ${
-            dark ? 'bg-dark-bg text-cream' : 'bg-cream text-dark-brown'
+            dark ? "bg-dark-bg text-cream" : "bg-cream text-dark-brown"
           }`}
         >
           <FloatingFlowers />
