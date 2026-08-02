@@ -1,5 +1,5 @@
 import heroImg from '../assets/images/hero.jpg';
-import brideImg from '../assets/images/bride.jpg';
+import brideImg from '../assets/images/bridge.jpg';
 import groomImg from '../assets/images/groom.jpg';
 import gallery1 from '../assets/images/gallery1.svg';
 import gallery2 from '../assets/images/gallery2.svg';

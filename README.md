@@ -46,7 +46,6 @@ src/
 Swap placeholder SVGs in `src/assets/images/` with your actual `.jpg` photos, then update imports in `src/data/wedding.js`:
 
 ```js
-import heroImg from '../assets/images/hero.jpg';   // was .svg
 import brideImg from '../assets/images/bride.jpg';
 ```
 
